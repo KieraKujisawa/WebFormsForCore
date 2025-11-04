@@ -15,6 +15,7 @@ AjaxControlToolkit.SampleSite/Content/AjaxControlToolkit/
 AjaxControlToolkit.Jasmine/bin/
 AjaxControlToolkit.Reference/bin/
 .vs/
+.idea/
 ReferenceCore/bin/
 AjaxControlToolkit.SampleSite/vwd.webinfo
 AjaxControlToolkit.Jasmine/Temp/*
