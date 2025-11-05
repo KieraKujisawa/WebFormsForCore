@@ -18,8 +18,6 @@ using System.Web.UI;
 [assembly: AssemblyProduct("Microsoft SQL Server")]
 [assembly: AssemblyTrademark("Microsoft SQL Server is a registered trademark of Microsoft Corporation.")]
 [assembly: AssemblyCompany("Microsoft Corporation")]
-[assembly: AssemblyFileVersion("12.0.2402.15")]
-[assembly: AssemblyInformationalVersion("12.0.2402.15")]
 [assembly: AssemblyKeyFile("D:\\B\\S2\\Sources\\Tools\\scopas\\custom\\data\\snk\\sql2003snkey.snk")]
 [assembly: AssemblyDelaySign(true)]
 [assembly: AssemblyKeyName("")]
@@ -28,4 +26,3 @@ using System.Web.UI;
 [assembly: AssemblyDefaultAlias("Microsoft.ReportViewer.WebForms.dll")]
 [assembly: NeutralResourcesLanguage("en-US")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyVersion("12.0.0.0")]

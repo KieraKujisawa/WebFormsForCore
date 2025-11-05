@@ -13,26 +13,9 @@
         <AssemblyOriginatorKeyFile>..\SigningKey\WebFormsForCore.snk</AssemblyOriginatorKeyFile>
         <AssemblyName>System.Web</AssemblyName>
 
-        <PackageId>EstrellasDeEsperanza.WebFormsForCore.Web</PackageId>
+        <PackageId>WebFormsForCore.Web</PackageId>
         <Title>WebFormsForCore.Web</Title>
-        <Authors>simonegli8</Authors>
-        <Company>Estrellas de Esperanza</Company>
         <Product>WebFormsForCore.Web</Product>
-        <Description>A port of ASP.NET WebForms to .NET 8</Description>
-        <Copyright>Estrellas de Esperanza</Copyright>
-        <PackageProjectUrl>https://github.com/webformsforcore/WebFormsForCore</PackageProjectUrl>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
-        <RepositoryUrl>https://github.com/webformsforcore/WebFormsForCore</RepositoryUrl>
-        <RepositoryType>git</RepositoryType>
-        <PackageTags>WebForms;porting WebForms;NET Core;NET 8</PackageTags>
-        <AssemblyVersion>8.0.12.0</AssemblyVersion>
-        <FileVersion>8.0.12.0</FileVersion>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <IncludeSymbols>true</IncludeSymbols>
-        <PublishRepositoryUrl>true</PublishRepositoryUrl>
-        <EmbedUntrackedSources>true</EmbedUntrackedSources>
-        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

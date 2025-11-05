@@ -16,7 +16,7 @@ using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.Security.Cryptography.X509Certificates;
 
-namespace EstrellasDeEsperanza.WebFormsForCore.Build
+namespace WebFormsForCore.Build
 {
 	public class CreateAspDesignerFiles: Task
 	{
@@ -201,7 +201,7 @@ namespace EstrellasDeEsperanza.WebFormsForCore.Build
 				var files = string.Join(";", aspFiles);
 
 				var path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-				var assembly = Path.GetFullPath(Path.Combine(path, "..\\net8.0\\EstrellasDeEsperanza.WebFormsForCore.Build.NetCore.dll"));
+				var assembly = Path.GetFullPath(Path.Combine(path, "..\\net8.0\\WebFormsForCore.Build.NetCore.dll"));
 
 				return RunCommand("dotnet.exe", $"\"{assembly}\" createdesignerfiles \"{dll}\" \"{WebRootPath}\" \"{files}\"");
 
@@ -211,7 +211,7 @@ namespace EstrellasDeEsperanza.WebFormsForCore.Build
 				var files = string.Join(";", aspFiles);
 
 				var path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-				var assembly = Path.GetFullPath(Path.Combine(path, "..\\net48\\EstrellasDeEsperanza.WebFormsForCore.Build.NetFX.exe"));
+				var assembly = Path.GetFullPath(Path.Combine(path, "..\\net48\\WebFormsForCore.Build.NetFX.exe"));
 
 				return RunCommand(assembly, $"createdesignerfiles \"{dll}\" \"{WebRootPath}\" \"{files}\"");
 			}
@@ -248,10 +248,10 @@ namespace EstrellasDeEsperanza.WebFormsForCore.Build
 				};
 				AppDomain.CurrentDomain.AssemblyResolve += ResolveAssembly;
 				Assembly buildAssembly;
-				if (IsCore) buildAssembly = System.Reflection.Assembly.LoadFrom(Path.GetFullPath(Path.Combine(path, "..\\net8.0\\EstrellasDeEsperanza.WebFormsForCore.Build.NetCore.dll")));
-				else buildAssembly = System.Reflection.Assembly.LoadFrom(Path.GetFullPath(Path.Combine(path, "..\\net48\\EstrellasDeEsperanza.WebFormsForCore.Build.NetFX.exe")));
+				if (IsCore) buildAssembly = System.Reflection.Assembly.LoadFrom(Path.GetFullPath(Path.Combine(path, "..\\net8.0\\WebFormsForCore.Build.NetCore.dll")));
+				else buildAssembly = System.Reflection.Assembly.LoadFrom(Path.GetFullPath(Path.Combine(path, "..\\net48\\WebFormsForCore.Build.NetFX.exe")));
 
-				var contextType = buildAssembly.GetType("EstrellasDeEsperanza.WebFormsForCore.Build.CreateAspDesignerFiles+MSBuildCompileContext");
+				var contextType = buildAssembly.GetType("WebFormsForCore.Build.CreateAspDesignerFiles+MSBuildCompileContext");
 				var context = Activator.CreateInstance(contextType, (Task)this);
 
 				var common = buildAssembly.GetType("Redesigner.Library.Common");

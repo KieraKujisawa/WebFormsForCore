@@ -6,11 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security;
 
-[assembly: AssemblyFileVersion("2.0.34876.0")]
 [assembly: SuppressMessage("Microsoft.Usage", "CA2243:AttributeStringLiteralsShouldParseCorrectly", Justification = "This version attribute is not parsed")]
-[assembly: AssemblyInformationalVersion("2.0.0-34876 (005f94e123afdf3111f23f0b982880f8db9b10a7)")]
-[assembly: AssemblyCompany("Estrellas de Esepranza")]
-[assembly: AssemblyCopyright("© Estrellas de Esperanza")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyTrademark("")]
 [assembly: ComVisible(false)]
@@ -24,4 +20,3 @@ using System.Security;
 [assembly: AssemblyTitle("Microsoft.Web.Infrastructure")]
 [assembly: AssemblyDescription("")]
 [assembly: AllowPartiallyTrustedCallers]
-[assembly: AssemblyVersion("2.0.0.0")]
