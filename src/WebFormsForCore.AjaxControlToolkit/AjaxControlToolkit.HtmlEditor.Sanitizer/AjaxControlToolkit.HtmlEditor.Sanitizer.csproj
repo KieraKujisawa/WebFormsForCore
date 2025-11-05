@@ -25,8 +25,6 @@
 		<Reference Include="System.Web" />
 	</ItemGroup>
 	<ItemGroup Condition="$(TargetFramework) != 'net48'">
-		<!--<PackageReference Include="WebFormsForCore.Configuration" Version="1.1.2-beta" />
-        <PackageReference Include="WebFormsForCore.Web" Version="1.1.2-beta" />-->
 		<ProjectReference Include="..\..\WebFormsForCore.Web\WebFormsForCore.Web.csproj" />
 		<ProjectReference Include="..\..\WebFormsForCore.Configuration\WebFormsForCore.Configuration.csproj" />
 	</ItemGroup>
