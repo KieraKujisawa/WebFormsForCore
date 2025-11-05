@@ -43,6 +43,7 @@
         <ProjectReference Include="..\WebFormsForCore.Web.ApplicationServices\WebFormsForCore.Web.ApplicationServices.csproj" />
         <ProjectReference Include="..\WebFormsForCore.Web.RegularExpressions\WebFormsForCore.Web.RegularExpressions.csproj" />
         -->
+		<ProjectReference Include="..\WebFormsForCore.Build\WebFormsForCore.Build.csproj" ExcludeAssets="runtime" />
 		<ProjectReference Include="..\WebFormsForCore.Web\WebFormsForCore.Web.csproj" />
 		<ProjectReference Include="..\WebFormsForCore.Web.Services\WebFormsForCore.Web.Services.csproj" />
 		<ProjectReference Include="..\WebFormsForCore.Web.Infrastructure\WebFormsForCore.Web.Infrastructure.csproj" />
@@ -57,8 +58,8 @@
         <PackageReference Include="WebFormsForCore.Web.Extensions" Version="1.3.16" />
         <PackageReference Include="WebFormsForCore.Web.Optimization" Version="1.3.16" />
         <PackageReference Include="WebFormsForCore.Web.Optimization.WebForms" Version="1.3.16" />
-        <PackageReference Include="WebFormsForCore.WebGrease" Version="1.3.16" />-->
-		<PackageReference Include="WebFormsForCore.Build" Version="1.3.16" ExcludeAssets="runtime" />
+        <PackageReference Include="WebFormsForCore.WebGrease" Version="1.3.16" />
+		<PackageReference Include="WebFormsForCore.Build" Version="1.3.16" ExcludeAssets="runtime" />-->
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net48'">
