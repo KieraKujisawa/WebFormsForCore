@@ -17,6 +17,6 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		
+		<NoWarn>MSB3243</NoWarn>
 	</PropertyGroup>
 </Project>
