@@ -4,11 +4,10 @@
 		<TargetFrameworks>net8.0;netstandard2.0</TargetFrameworks>
 		<ImplicitUsings>disable</ImplicitUsings>
 		<Nullable>disable</Nullable>
-		<LangVersion>13</LangVersion>
-		<AssemblyName>WebFormsForCore.Build.Designer</AssemblyName>
+		<LangVersion>8</LangVersion>
+		<AssemblyName>WebFormsForCore.Build</AssemblyName>
 		<PreserveCompilationContext>true</PreserveCompilationContext>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-		<OutputType>Exe</OutputType>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
 		<StartupObject>WebFormsForCore.Build.Program</StartupObject>
@@ -24,6 +23,11 @@
 		<AssemblyOriginatorKeyFile>..\SigningKey\WebFormsForCore.snk</AssemblyOriginatorKeyFile>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="$(TargetFramework) == 'net48'">
+		<AssemblyName>$(AssemblyName).NetFX</AssemblyName>
+		<OutputPath>..\..\lib\WebFormsForCore.Build\net48</OutputPath>
+	</PropertyGroup>
+
 	<PropertyGroup Condition="$(TargetFramework) == 'net8.0'">
 		<AssemblyName>$(AssemblyName).NetCore</AssemblyName>
 		<OutputPath>..\..\lib\WebFormsForCore.Build\net8.0</OutputPath>
@@ -34,16 +38,14 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Remove="FakeStrongName.targets" />
-		<None Remove="netstandard.dll" />
-		<None Remove="System.Runtime.dll" />
+		<Compile Remove="AssemblyPatcher.cs" />
+		<None Include="AssemblyPatcher.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Include="FakeStrongName.targets">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<Pack>False</Pack>
-		</None>
+		<None Remove="FakeStrongName.targets" />
+		<None Remove="netstandard.dll" />
+		<None Remove="System.Runtime.dll" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -54,7 +56,23 @@
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="System.Private.Uri" Version="4.3.2" />
 	</ItemGroup>
-    
+
+	<ItemGroup Condition="$(TargetFramework) == 'net48'">
+		<!--<Reference Include="System.Web" Version="4.0.0.0" />-->
+		<Reference Include="System" Version="4.0.0.0" />
+		<Reference Include="System.Console" />
+		<Reference Include="System.Runtime" />
+		<Reference Include="System.Collections" />
+		<Reference Include="System.Linq" />
+		<Reference Include="System.Xml" />
+		<Reference Include="System.Xml.Linq" />
+		<Reference Include="System.Xml.XDocument" />
+		<Reference Include="System.Text.RegularExpressions" />
+		<Reference Include="System.Diagnostics.Process" />
+		<Reference Include="System.ComponentModel.Primitives" />
+		<Reference Include="System.Web" />
+	</ItemGroup>
+
 	<ItemGroup Condition="$(TargetFramework) == 'net8.0'">
 		<ProjectReference Include="..\WebFormsForCore.Web\WebFormsForCore.Web.csproj" />
 	</ItemGroup>
@@ -75,17 +93,20 @@
 		<None Include="lib\net48\_._" PackagePath="lib\net48" Pack="True" />
 		<None Include="lib\netstandard2.0\_._" PackagePath="lib\netstandard2.0" Pack="True" />
 	</ItemGroup>
-    
 	<ItemGroup Condition="$(Packaging) == 'True'">
 		<None Include="..\..\lib\WebFormsForCore.Build\net8.0\**\*.*" PackagePath="build\net8.0\%(RecursiveDir)" Pack="True" Link="lib\net8.0\%(RecursiveDir)\%(Filename).%(Extension)" />
 		<None Include="..\..\lib\WebFormsForCore.Build\net48\**\*.*" PackagePath="build\net48\%(RecursiveDir)" Pack="True" Link="lib\net48\%(RecursiveDir)\%(Filename).%(Extension)" />
 		<None Include="..\..\lib\WebFormsForCore.Build\netstandard2.0\**\*.*" PackagePath="build\netstandard2.0\%(RecursiveDir)" Pack="True" Link="lib\netstandard2.0\%(RecursiveDir)\%(Filename).%(Extension)" />
 		<None Include="..\..\lib\WebFormsForCore.Build\netstandard2.0\*.*" PackagePath="build\netstandard2.0\%(RecursiveDir)" Pack="True" Link="lib\netstandard2.0\%(RecursiveDir)\%(Filename).%(Extension)" />
-	</ItemGroup>
-    
-	<ItemGroup>
-	  <ProjectReference Include="..\WebFormsForCore.Build.Designer\WebFormsForCore.Build.Designer.csproj" />
-	  <ProjectReference Include="..\WebFormsForCore.Build.StrongName\WebFormsForCore.Build.StrongName.csproj" />
+		<!--<None Include="..\..\lib\WebFormsForCore.Build\net8.0\WebFormsForCore.Build.NetCore.deps.json" PackagePath="build\netstandard2.0" Pack="True" Link="lib\netstandard2.0\WebFormsForCore.Build.NetCore.deps.json" />
+        <None Include="..\..\lib\WebFormsForCore.Build\net8.0\WebFormsForCore.Build.NetCore.dll" PackagePath="build\netstandard2.0" Pack="True" Link="lib\netstandard2.0\WebFormsForCore.Build.NetCore.dll" />
+        <None Include="..\..\lib\WebFormsForCore.Build\net8.0\WebFormsForCore.Build.NetCore.pdb" PackagePath="build\netstandard2.0" Pack="True" Link="lib\netstandard2.0\WebFormsForCore.Build.NetCore.pdb" />
+        <None Include="..\..\lib\WebFormsForCore.Build\net8.0\WebFormsForCore.Build.NetCore.exe" PackagePath="build\netstandard2.0" Pack="True" Link="lib\netstandard2.0\WebFormsForCore.Build.NetCore.exe" />
+        <None Include="..\..\lib\WebFormsForCore.Build\net8.0\WebFormsForCore.Build.NetCore.runtimeconfig.json" PackagePath="build\netstandard2.0" Pack="True" Link="lib\netstandard2.0\WebFormsForCore.Build.NetCore.runtimeconfig.json" />
+        <None Include="..\..\lib\WebFormsForCore.Build\net48\WebFormsForCore.Build.NetFX.exe" PackagePath="build\netstandard2.0" Pack="True" Link="lib\netstandard2.0\WebFormsForCore.Build.NetFX.exe" />
+        <None Include="..\..\lib\WebFormsForCore.Build\net48\WebFormsForCore.Build.NetFX.pdb" PackagePath="build\netstandard2.0" Pack="True" Link="lib\netstandard2.0\WebFormsForCore.Build.NetFX.pdb" />
+        <None Include="..\..\lib\WebFormsForCore.Build\net48\WebFormsForCore.Build.NetFX.exe.config" PackagePath="build\netstandard2.0" Pack="True" Link="lib\netstandard2.0\WebFormsForCore.Build.NetFX.exe.config" />
+        -->
 	</ItemGroup>
 
 </Project>

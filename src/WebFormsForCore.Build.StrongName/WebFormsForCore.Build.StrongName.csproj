@@ -1,0 +1,64 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net8.0;netstandard2.0</TargetFrameworks>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+        <LangVersion>8</LangVersion>
+		<AssemblyName>WebFormsForCore.Build.Designer</AssemblyName>
+		<PreserveCompilationContext>true</PreserveCompilationContext>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+		<DefineConstants>$(DefineConstants);WebFormsForCore</DefineConstants>
+        <NoWarn>SYSLIB0017;0162</NoWarn>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+		<PackageId>WebFormsForCore.Build.StrongName</PackageId>
+		<Title>WebFormsForCore.Build.StrongName</Title>
+		<Product>WebFormsForCore.Build.StrongName</Product>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<SignAssembly>True</SignAssembly>
+		<AssemblyOriginatorKeyFile>..\SigningKey\WebFormsForCore.snk</AssemblyOriginatorKeyFile>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="$(TargetFramework) == 'net48'">
+		<AssemblyName>$(AssemblyName).NetFX</AssemblyName>
+		<OutputPath>..\..\lib\WebFormsForCore.Build\net48</OutputPath>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="$(TargetFramework) == 'net8.0'">
+		<AssemblyName>$(AssemblyName).NetCore</AssemblyName>
+		<OutputPath>..\..\lib\WebFormsForCore.Build\net8.0</OutputPath>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="$(TargetFramework) == 'netstandard2.0'">
+		<OutputPath>..\..\lib\WebFormsForCore.Build\netstandard2.0</OutputPath>
+	</PropertyGroup>
+    
+	<ItemGroup>
+		<None Remove="netstandard.dll" />
+		<None Remove="System.Runtime.dll" />
+		<None Update="FakeStrongName.targets">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		  <Pack>False</Pack>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Build" Version="15.9.20" />
+		<PackageReference Include="Microsoft.Build.Utilities.Core" Version="15.9.20" />
+		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+		<PackageReference Include="Mono.Cecil" Version="0.11.6" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="System.Private.Uri" Version="4.3.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\README.md" PackagePath="\" Pack="True" />
+	</ItemGroup>
+
+</Project>
