@@ -18,6 +18,10 @@
 		<Product>WebFormsForCore.Serialization.Formatters</Product>
 	</PropertyGroup>
 
+    <PropertyGroup>
+        <NoWarn>SYSLIB0011;SYSLIB0050;SYSLIB0051;0169;8600;8601;8602;8603;8604;8605;8618;8619;8625;8765;8767</NoWarn>
+    </PropertyGroup>
+    
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 		<DebugType>portable</DebugType>
 	</PropertyGroup>
