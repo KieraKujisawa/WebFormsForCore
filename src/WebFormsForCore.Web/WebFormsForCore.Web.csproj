@@ -115,11 +115,7 @@
         <Reference Include="System.ServiceProcess" />
         <Reference Include="System.Windows.Forms" />
     </ItemGroup>
-
-    <Target Name="Preprocess">
-        <MSBuild Projects="WebFormsForCore.Web.Cpp.vcxproj" Targets="Build" />
-    </Target>
-
+    
     <Import Project="..\..\lib\WebFormsForCore.Build\netstandard2.0\FakeStrongName.targets" />
 
     <PropertyGroup>
